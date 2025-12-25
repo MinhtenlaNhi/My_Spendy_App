@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:paddingVertical="16dp"
+    android:paddingHorizontal="16dp">
+
+    <!-- Border bên trái -->
+    <View
+        android:id="@+id/viewLeftBorder"
+        android:layout_width="4dp"
+        android:layout_height="0dp"
+        android:background="@color/gray_light"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Title (Tháng/Tuần/Ngày) -->
+    <TextView
+        android:id="@+id/tvMonthTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Tháng 1"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_marginStart="12dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/viewLeftBorder"
+        app:layout_constraintEnd_toStartOf="@id/tvMonthIncome"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvMonthIncome" />
+
+    <!-- Income (Thu) - cùng hàng với Title -->
+    <TextView
+        android:id="@+id/tvMonthIncome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+ 28.970.000"
+        android:textColor="#4CAF50"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Expense (Chi) -->
+    <TextView
+        android:id="@+id/tvMonthExpense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="- 20.120.000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#757575"
+        android:layout_marginTop="6dp"
+        app:layout_constraintTop_toBottomOf="@id/tvMonthIncome"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Balance (Còn lại) -->
+    <TextView
+        android:id="@+id/tvMonthBalance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="8.850.000"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="6dp"
+        app:layout_constraintTop_toBottomOf="@id/tvMonthExpense"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- Divider dưới cùng -->
+    <View
+        android:id="@+id/viewDivider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="12dp"
+        android:background="#E0E0E0"
+        app:layout_constraintTop_toBottomOf="@id/tvMonthBalance"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,79 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Logo -->
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@drawable/logo"
+            android:layout_marginTop="60dp"
+            android:layout_gravity="center"/>
+
+        <!-- App Name -->
+        <ImageView
+            android:id="@+id/appName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/spendy"
+            android:layout_marginTop="0dp"
+            android:layout_gravity="center"/>
+        <!-- Title Quên mật khẩu-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Xác minh mã OTP"
+            android:textColor="@color/main_green"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Vui lòng nhập mã OTP đã được gửi đến số điện thoại của bạn"
+            android:gravity="center"
+            android:layout_gravity="center"/>
+
+        <!-- OTP input -->
+        <EditText
+            android:id="@+id/edtOtp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Nhập mã OTP "
+            android:background="@drawable/edittext_border"
+            android:drawablePadding="10dp"
+            android:layout_marginTop="77dp"
+            android:layout_gravity="center_vertical"/>
+        <!-- Button xác minh -->
+
+        <Button
+            android:id="@+id/btnVerifyOtp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Xác minh"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="@color/main_green"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/baloo2_medium">
+        </Button>
+
+
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E6F7F3">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- ===== TIÊU ĐỀ ===== -->
+        <TextView
+            android:id="@+id/tvDialogTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Tạo danh mục mới"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <!-- ===== LOẠI DANH MỤC ===== -->
+        <TextView
+            android:text="Loại danh mục"
+            android:textStyle="bold"
+            android:layout_marginBottom="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <AutoCompleteTextView
+            android:id="@+id/edt_category_type"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Nhập loại danh mục (ví dụ: Khoản chi, Khoản thu, Ăn uống, ...)"
+            android:background="@drawable/edittext_border"
+            android:padding="12dp"
+            android:inputType="text"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:clickable="true"
+            android:completionThreshold="0"
+            android:dropDownHeight="wrap_content" />
+
+        <!-- ===== TÊN DANH MỤC ===== -->
+        <TextView
+            android:text="Tên danh mục"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <AutoCompleteTextView
+            android:id="@+id/edt_category_name"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Nhập tên danh mục"
+            android:background="@drawable/edittext_border"
+            android:padding="12dp"
+            android:inputType="text"/>
+
+        <!-- ===== CHỌN ICON ===== -->
+        <TextView
+            android:text="Chọn icon"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/ivSelectedIcon"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@drawable/bg_category_icon"
+                android:padding="12dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_add"
+                android:contentDescription="Icon đã chọn" />
+
+            <Button
+                android:id="@+id/btnChooseIcon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:text="Chọn icon từ hệ thống"
+                android:minHeight="48dp" />
+
+            <Button
+                android:id="@+id/btnChooseImage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:text="Chọn ảnh"
+                android:minHeight="48dp" />
+        </LinearLayout>
+
+        <!-- Grid icon có sẵn -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvIcons"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="8dp"
+            android:nestedScrollingEnabled="false" />
+
+        <!-- ===== CHỌN MÀU SẮC ===== -->
+        <TextView
+            android:text="Chọn màu sắc"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="8dp"
+            android:background="@drawable/edittext_border">
+
+            <View
+                android:id="@+id/viewSelectedColor"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_color_circle" />
+
+            <Button
+                android:id="@+id/btnChooseColor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:text="Chọn màu"
+                android:minHeight="48dp" />
+        </LinearLayout>
+
+        <!-- Grid màu sắc -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvColors"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="8dp"
+            android:nestedScrollingEnabled="false" />
+
+        <!-- ===== NÚT ===== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="28dp">
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="Huỷ"
+                android:background="#BDBDBD"
+                android:textColor="#000000"/>
+
+            <View
+                android:layout_width="16dp"
+                android:layout_height="1dp"/>
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="Lưu"
+                android:background="@color/main_green"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

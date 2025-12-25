@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <TextView
+        android:id="@+id/tvNewIncome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Khoản thu mới"
+        android:padding="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:drawableStart="@drawable/ic_income"
+        android:drawablePadding="16dp"
+        android:gravity="center_vertical"
+        android:background="?attr/selectableItemBackground"/>
+
+    <TextView
+        android:id="@+id/tvNewExpense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Khoản chi mới"
+        android:padding="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:drawableStart="@drawable/ic_expense"
+        android:drawablePadding="16dp"
+        android:gravity="center_vertical"
+        android:background="?attr/selectableItemBackground"/>
+
+</LinearLayout>

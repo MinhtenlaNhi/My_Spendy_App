@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_login"> <!-- Màn hình bắt đầu là Login -->
+
+    <!-- ===================== FRAGMENTS KHÔNG CÓ MENU DƯỚI ===================== -->
+
+    <fragment
+        android:id="@+id/navigation_login"
+        android:name="com.example.myspendyapp.ui.FragmentLogin"
+        android:label="Đăng nhập"
+        tools:layout="@layout/fragment_login">
+
+        <argument
+            android:name="username"
+            app:argType="string"
+            android:defaultValue="" />
+        <argument
+            android:name="password"
+            app:argType="string"
+            android:defaultValue="" />
+
+        <action
+            android:id="@+id/action_login_to_home"
+            app:destination="@id/navigation_home"
+            app:popUpTo="@id/navigation_login" 
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/navigation_register" />
+
+        <action
+            android:id="@+id/action_login_to_enter_phone_number"
+            app:destination="@id/fragmentEnterPhoneNumber" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_register"
+        android:name="com.example.myspendyapp.ui.FragmentRegister"
+        android:label="Đăng ký"
+        tools:layout="@layout/fragment_register">
+
+        <action
+            android:id="@+id/action_register_to_login"
+            app:destination="@id/navigation_login"
+            app:popUpTo="@id/navigation_login"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/createIncomeFragment"
+        android:name="com.example.myspendyapp.ui.spending.CreateIncomeFragment"
+        android:label="Khoản thu mới"
+        tools:layout="@layout/fragment_create_income" />
+
+    <fragment
+        android:id="@+id/createExpenseFragment"
+        android:name="com.example.myspendyapp.ui.spending.CreateExpenseFragment"
+        android:label="Khoản chi mới"
+        tools:layout="@layout/fragment_create_expense" />
+
+
+    <fragment
+        android:id="@+id/fragmentEnterPhoneNumber"
+        android:name="com.example.myspendyapp.ui.forgotpassword.FragmentEnterPhoneNumber"
+        android:label="Enter Phone Number"
+        tools:layout="@layout/fragment_enter_phone_number">
+
+        <action
+            android:id="@+id/action_enterPhone_to_enterOtp"
+            app:destination="@id/fragmentEnterOtp" />
+    </fragment>
+
+
+    <!-- MÀN HÌNH 2: NHẬP OTP-->
+    <fragment
+        android:id="@+id/fragmentEnterOtp"
+        android:name="com.example.myspendyapp.ui.forgotpassword.FragmentEnterOtp"
+        android:label="Enter OTP"
+        tools:layout="@layout/fragment_enter_otp">
+
+        <!-- Chuyển sang màn Reset Password -->
+        <action
+            android:id="@+id/action_enterOtp_to_resetPassword"
+            app:destination="@id/fragmentResetPassword" />
+    </fragment>
+
+        <!-- MÀN HÌNH 3: ĐẶT LẠI MẬT KHẨU-->
+    <fragment
+        android:id="@+id/fragmentResetPassword"
+        android:name="com.example.myspendyapp.ui.forgotpassword.FragmentResetPassword"
+        android:label="Reset Password"
+        tools:layout="@layout/fragment_reset_password">
+        <!-- Chuyển sang màn Reset Password -->
+        <action
+            android:id="@+id/action_reset_password_to_login"
+            app:destination="@id/navigation_login" />
+    </fragment>
+
+    <!-- ===================== FRAGMENTS CÓ MENU DƯỚI ===================== -->
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.myspendyapp.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.example.myspendyapp.ui.dashboard.CategoryFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_category">
+        <action
+            android:id="@+id/action_category_to_create_category"
+            app:destination="@id/createCategoryFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/createCategoryFragment"
+        android:name="com.example.myspendyapp.ui.dashboard.CreateCategoryFragment"
+        android:label="Tạo danh mục mới"
+        tools:layout="@layout/fragment_create_category" />
+
+    <fragment
+        android:id="@+id/navigation_spending"
+        android:name="com.example.myspendyapp.ui.spending.SpendingFragment"
+        android:label="@string/title_spending"
+        tools:layout="@layout/fragment_spending">
+        <action
+            android:id="@+id/action_spending_to_create_income"
+            app:destination="@id/createIncomeFragment" />
+        <action
+            android:id="@+id/action_spending_to_create_expense"
+            app:destination="@id/createExpenseFragment" />
+        <action
+            android:id="@+id/action_spending_to_all_transactions"
+            app:destination="@id/allTransactionsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/allTransactionsFragment"
+        android:name="com.example.myspendyapp.ui.spending.AllTransactionsFragment"
+        android:label="Danh sách giao dịch"
+        tools:layout="@layout/fragment_all_transactions">
+        <argument
+            android:name="isIncome"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.example.myspendyapp.ui.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_account"
+        android:name="com.example.myspendyapp.ui.FragmentAccount"
+        android:label="@string/title_account"
+        tools:layout="@layout/fragment_account">
+        <action
+            android:id="@+id/action_account_to_login"
+            app:destination="@id/navigation_login"
+            app:popUpTo="@id/navigation_login"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_account_to_change_password"
+            app:destination="@id/changePasswordFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.example.myspendyapp.ui.ChangePasswordFragment"
+        android:label="Thay đổi mật khẩu"
+        tools:layout="@layout/fragment_change_password" />
+
+</navigation>

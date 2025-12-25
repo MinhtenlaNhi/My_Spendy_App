@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <!-- Header -->
+    <View
+        android:id="@+id/viewHeader"
+        android:layout_width="0dp"
+        android:layout_height="90dp"
+        android:background="@color/main_green"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tvHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trang chủ"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/viewHeader"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Card Content -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardContent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="6dp"
+        app:layout_constraintTop_toBottomOf="@id/viewHeader"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- SỬA LỖI: Bọc tất cả các phần tử con vào trong một ConstraintLayout duy nhất -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Tabs -->
+            <LinearLayout
+                android:id="@+id/tabsLayout"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:background="@color/gray_light"
+                android:orientation="horizontal"
+                android:padding="4dp"
+                android:weightSum="3"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                    android:id="@+id/tvNgay"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Ngày"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_tab_unselected" />
+
+                <TextView
+                    android:id="@+id/tvTuan"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Tuần"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_tab_unselected" />
+
+                <TextView
+                    android:id="@+id/tvThang"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Tháng"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_tab_selected" />
+            </LinearLayout>
+
+            <!-- BIỂU ĐỒ THU / CHI -->
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/chartThuChi"
+                android:layout_width="0dp"
+                android:layout_height="280dp"
+                android:layout_margin="12dp"
+                android:contentDescription="Bieu do thu chi"
+                app:layout_constraintTop_toBottomOf="@+id/tabsLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:ignore="MissingClass" />
+
+            <!-- MONTHLY SUMMARIES LIST -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewMonthlySummaries"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:clipToPadding="false"
+                android:padding="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/chartThuChi"
+                app:layout_constraintBottom_toTopOf="@+id/layoutSummary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <!-- SUMMARY THEO NGÀY / TUẦN / THÁNG -->
+            <LinearLayout
+                android:id="@+id/layoutSummary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                    android:id="@+id/tvTongThu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+ 0"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#4CAF50" />
+
+                <TextView
+                    android:id="@+id/tvTongChi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="- 0"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#F44336" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="8dp"
+                    android:background="@color/gray_light" />
+
+                <TextView
+                    android:id="@+id/tvConLai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#000000" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
