@@ -1,5 +1,6 @@
 package com.example.myspendyapp.ui.dashboard
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
@@ -36,9 +37,10 @@ class CreateCategoryFragment : Fragment() {
 
     // Danh sách icon có sẵn
     private val availableIcons = listOf(
-        "ic_food", "ic_income", "ic_expense", "ic_home_black_24dp",
-        "ic_dashboard_black_24dp", "ic_person", "ic_setting", "ic_info",
-        "ic_support", "ic_add", "ic_calendar", "ic_color_palette"
+        "ic_food", "ic_car", "ic_check", "ic_education",
+        "ic_gift", "ic_home", "ic_income", "ic_invest",
+        "ic_lightning", "ic_medicine", "ic_piggy",
+        "ic_protect", "ic_shopping"
     )
 
     // Danh sách màu sắc
@@ -313,17 +315,18 @@ class CreateCategoryFragment : Fragment() {
     private fun getIconResourceId(iconName: String): Int {
         return when (iconName) {
             "ic_food" -> R.drawable.ic_food
+            "ic_car" -> R.drawable.ic_car
+            "ic_check" -> R.drawable.ic_check
+            "ic_education" -> R.drawable.ic_education
+            "ic_gift" -> R.drawable.ic_gift
+            "ic_home" -> R.drawable.ic_home
             "ic_income" -> R.drawable.ic_income
-            "ic_expense" -> R.drawable.ic_expense
-            "ic_home_black_24dp" -> R.drawable.ic_home_black_24dp
-            "ic_dashboard_black_24dp" -> R.drawable.ic_dashboard_black_24dp
-            "ic_person" -> R.drawable.ic_person
-            "ic_setting" -> R.drawable.ic_setting
-            "ic_info" -> R.drawable.ic_info
-            "ic_support" -> R.drawable.ic_support
-            "ic_add" -> R.drawable.ic_add
-            "ic_calendar" -> R.drawable.ic_calendar
-            "ic_color_palette" -> R.drawable.ic_color_palette
+            "ic_inves" -> R.drawable.ic_invest
+            "ic_lightning" -> R.drawable.ic_lightning
+            "ic_medicine" -> R.drawable.ic_medicine
+            "ic_piggy" -> R.drawable.ic_piggy
+            "ic_protect" -> R.drawable.ic_protect
+            "ic_shopping" -> R.drawable.ic_shopping
             else -> {
                 // Nếu là URI, trả về icon mặc định
                 R.drawable.ic_add
@@ -380,6 +383,7 @@ class CreateCategoryFragment : Fragment() {
             return ColorViewHolder(binding)
         }
 
+        @SuppressLint("NotifyDataSetChanged")
         override fun onBindViewHolder(holder: ColorViewHolder, position: Int) {
             val color = availableColors[position]
             holder.bind(color, color == selectedColor) {

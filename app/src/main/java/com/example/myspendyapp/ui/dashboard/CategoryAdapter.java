@@ -137,17 +137,18 @@ public class CategoryAdapter extends ListAdapter<Category, CategoryAdapter.Categ
         private int getIconResourceId(String iconName) {
             switch (iconName) {
                 case "ic_food": return R.drawable.ic_food;
+                case "ic_car": return R.drawable.ic_car;
+                case "ic_check": return R.drawable.ic_check;
+                case "ic_education": return R.drawable.ic_education;
+                case "ic_gift": return R.drawable.ic_gift;
+                case "ic_home": return R.drawable.ic_home;
                 case "ic_income": return R.drawable.ic_income;
-                case "ic_expense": return R.drawable.ic_expense;
-                case "ic_home_black_24dp": return R.drawable.ic_home_black_24dp;
-                case "ic_dashboard_black_24dp": return R.drawable.ic_dashboard_black_24dp;
-                case "ic_person": return R.drawable.ic_person;
-                case "ic_setting": return R.drawable.ic_setting;
-                case "ic_info": return R.drawable.ic_info;
-                case "ic_support": return R.drawable.ic_support;
-                case "ic_add": return R.drawable.ic_add;
-                case "ic_calendar": return R.drawable.ic_calendar;
-                case "ic_color_palette": return R.drawable.ic_color_palette;
+                case "ic_invest": return R.drawable.ic_invest;
+                case "ic_lightning": return R.drawable.ic_lightning;
+                case "ic_medicine": return R.drawable.ic_medicine;
+                case "ic_piggy": return R.drawable.ic_piggy;
+                case "ic_protect": return R.drawable.ic_protect;
+                case "ic_shopping": return R.drawable.ic_shopping;
                 default: return R.drawable.ic_food;
             }
         }
