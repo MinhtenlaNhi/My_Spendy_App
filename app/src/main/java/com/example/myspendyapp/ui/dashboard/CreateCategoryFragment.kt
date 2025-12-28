@@ -120,7 +120,7 @@ class CreateCategoryFragment : Fragment() {
     private fun setupCategoryTypeDropdown() {
         // Loại danh mục: AutoComplete với gợi ý từ CSDL và cho phép nhập tự do
         binding.edtCategoryType.threshold = 0
-        
+
         // Filter khi user gõ - tìm kiếm trong CSDL
         binding.edtCategoryType.addTextChangedListener(object : android.text.TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -145,7 +145,7 @@ class CreateCategoryFragment : Fragment() {
             }
             override fun afterTextChanged(s: android.text.Editable?) {}
         })
-        
+
         // Click để mở dropdown
         binding.edtCategoryType.setOnClickListener {
             val currentText = binding.edtCategoryType.text.toString().trim()
@@ -157,7 +157,7 @@ class CreateCategoryFragment : Fragment() {
                 }
             }
         }
-        
+
         // Load tất cả loại danh mục ban đầu
         viewModel.searchCategoryTypes("") { suggestions ->
             val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, suggestions)
@@ -240,7 +240,7 @@ class CreateCategoryFragment : Fragment() {
             binding.ivSelectedIcon.setImageResource(iconResId)
             binding.ivSelectedIcon.setColorFilter(Color.WHITE)
         }
-        
+
         // Set màu nền cho icon container
         try {
             val color = Color.parseColor(selectedColor)
@@ -306,7 +306,7 @@ class CreateCategoryFragment : Fragment() {
             viewModel.update(updatedCategory)
             Toast.makeText(context, "Đã cập nhật danh mục thành công", Toast.LENGTH_SHORT).show()
         }
-        
+
         findNavController().popBackStack()
     }
 
@@ -407,4 +407,3 @@ class CreateCategoryFragment : Fragment() {
         }
     }
 }
-

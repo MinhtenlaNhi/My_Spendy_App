@@ -67,7 +67,7 @@
                     android:layout_width="0dp"
                     android:layout_height="120dp"
                     android:layout_weight="1"
-                    android:background="#2A6DF4"
+                    android:background="@drawable/bg_blue_card"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="16dp"
@@ -78,8 +78,7 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@drawable/ic_income"
-                        android:tint="#FFFFFF"
+                        android:src="@drawable/ic_thu"
                         android:contentDescription="Income icon" />
 
                     <TextView
@@ -121,8 +120,7 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@drawable/ic_expense"
-                        android:tint="#000000"
+                        android:src="@drawable/ic_chi"
                         android:contentDescription="Expense icon" />
 
                     <TextView
