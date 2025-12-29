@@ -86,10 +86,13 @@ class NotificationsViewModel(application: Application) : AndroidViewModel(applic
 
                 if (isOver) {
                     val overAmount = totalExpense - budget
-                    _warningMessage.postValue("Cảnh báo! Bạn đã chi tiêu vượt quá ngân sách ${String.format("%.0f", overAmount)} đ")
+                    _warningMessage.postValue("Cảnh báo! Bạn đã chi tiêu vượt quá ngân " +
+                            "sách ${String.format("%.0f", overAmount)} đ")
                 } else if (totalExpense >= budget * 0.8) {
                     val remaining = budget - totalExpense
-                    _warningMessage.postValue("Cảnh báo! Bạn đã chi tiêu ${String.format("%.0f", (totalExpense / budget * 100))}% ngân sách. Còn lại ${String.format("%.0f", remaining)} đ")
+                    _warningMessage.postValue("Cảnh báo! Bạn đã chi tiêu " +
+                            "${String.format("%.0f", (totalExpense / budget * 100))}% ngân sách. " +
+                            "Còn lại ${String.format("%.0f", remaining)} đ")
                 } else {
                     _warningMessage.postValue("")
                 }

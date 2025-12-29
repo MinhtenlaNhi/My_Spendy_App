@@ -111,7 +111,8 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
             val year = calendar.get(Calendar.YEAR)
             
             // Sử dụng weekOfYear làm "month" (để tương thích với MonthlyStatistics)
-            statsMap[Pair(weekOfYear, year)] = MonthlyStatistics(weekOfYear, year, 0.0, 0.0)
+            statsMap[Pair(weekOfYear, year)] = MonthlyStatistics(weekOfYear, year,
+                0.0, 0.0)
         }
 
         // Tính toán thống kê từ transactions
